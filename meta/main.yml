@@ -1,0 +1,21 @@
+galaxy_info:
+  role_name: 'install_and_start_postgresql'
+  namespace: 'johanneskastl'
+  author: 'Johannes Kastl'
+  description: 'Role to just setup a postgreSQL database without much configuration'
+
+  license: 'BSD-3-Clause'
+
+  min_ansible_version: '2.12'
+
+  platforms:
+    - name: opensuse
+      versions:
+        - all
+    - name: SLES
+      versions:
+        - all
+
+  galaxy_tags: []
+
+dependencies: []
