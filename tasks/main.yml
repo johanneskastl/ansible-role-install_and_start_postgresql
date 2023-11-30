@@ -1,0 +1,20 @@
+---
+# install_and_start_postgresql/tasks/main.yml
+
+- name: 'Install postgreSQL'
+  ansible.builtin.package:
+    name: "{{ postgresql_package_name }}"
+    state: 'present'
+
+- name: 'Start the postgreSQL service'
+  ansible.builtin.service:
+    name: "{{ postgresql_service_name }}"
+    state: 'started'
+
+- name: 'Enable the postgreSQL service'
+  ansible.builtin.service:
+    name: "{{ postgresql_service_name }}"
+    enabled: true
+
+- name: 'Flush handlers'
+  ansible.builtin.meta: flush_handlers
