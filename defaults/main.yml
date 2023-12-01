@@ -2,4 +2,4 @@
 # install_and_start_postgresql/defaults/main.yml
 
 postgresql_package_name: 'postgresql16-server'
-postgresql_service_name: 'postgres.service'
+postgresql_service_name: 'postgresql.service'
