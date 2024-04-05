@@ -16,5 +16,17 @@
     name: "{{ postgresql_service_name }}"
     enabled: true
 
+- name: 'Modify postgresql.conf to listen on all IP addresses'
+  ansible.builtin.lineinfile:
+    path: "{{ path_to_postgresql_conf }}"
+    line: "listen_addresses = '*'"
+    regexp: "^listen_addresses"
+    insertbefore: '^#port = 5432'
+  notify:
+    - 'Restart the postgreSQL service'
+  when:
+    - 'only_listen_on_localhost is defined'
+    - 'not only_listen_on_localhost | bool'
+
 - name: 'Flush handlers'
   ansible.builtin.meta: flush_handlers
