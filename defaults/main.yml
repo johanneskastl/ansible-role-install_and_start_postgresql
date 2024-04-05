@@ -3,3 +3,5 @@
 
 postgresql_package_name: 'postgresql16-server'
 postgresql_service_name: 'postgresql.service'
+
+path_to_postgresql_conf: '/var/lib/pgsql/data/postgresql.conf'
