@@ -1,0 +1,7 @@
+---
+# install_and_start_postgresql/handlers/main.yml
+
+- name: 'Restart the postgreSQL service'
+  ansible.builtin.service:
+    name: "{{ postgresql_service_name }}"
+    state: 'restarted'
