@@ -30,3 +30,19 @@
 
 - name: 'Flush handlers'
   ansible.builtin.meta: flush_handlers
+
+- name: 'Install the psycopg2 python module'
+  ansible.builtin.package:
+    name: "{{ psycopg2_package_name }}"
+    state: present
+  when:
+    - 'postgresql_superuser_password is defined'
+
+- name: 'Set the password for the postgres user'
+  community.postgresql.postgresql_user:
+    name: "{{ postgresql_system_user }}"
+    password: "{{ postgresql_superuser_password }}"
+  become_user: "{{ postgresql_system_user }}"
+  become: true
+  when:
+    - 'postgresql_superuser_password is defined'
