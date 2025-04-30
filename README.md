@@ -38,6 +38,10 @@ feel free to do so:
 - `path_to_postgresql_conf` (String): Path to the `postgresql.conf` file, needed
   in case you want the database to not only listen on `localhost` (default:
   `/var/lib/pgsql/data/postgresql.conf`)
+- `path_to_ansible_tmp` (String): Path to the temporary directory for Ansible in
+  the postgres user's home directory ` (default: `/var/lib/pgsql/.ansible/tmp/`)
+- `postgresql_system_group` (String): System group for the PostgreSQL database
+  (default: `postgres`)
 - `postgresql_system_user` (String): System user for the PostgreSQL database
   (default: `postgres`)
 - `psycopg2_package_name` (String): Name of the package containing the psycopg2
