@@ -12,7 +12,7 @@
     creates: '/var/lib/pgsql/data/PG_VERSION'
   when:
     - '
-      ansible_os_family == "RHEL" or
+      ansible_os_family == "RedHat" or
       ansible_os_family == "RockyLinux"
       '
 
