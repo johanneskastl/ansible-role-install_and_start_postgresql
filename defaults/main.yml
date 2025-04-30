@@ -8,5 +8,6 @@ path_to_postgresql_conf: '/var/lib/pgsql/data/postgresql.conf'
 path_to_ansible_tmp: '/var/lib/pgsql/.ansible/tmp/'
 
 postgresql_system_user: 'postgres'
+postgresql_system_group: 'postgres'
 
 psycopg2_package_name: 'python3-psycopg2'
