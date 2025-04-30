@@ -26,6 +26,15 @@
     name: "{{ postgresql_service_name }}"
     enabled: true
 
+- name: 'Modify postgresql.conf to use scram-sha-256'
+  ansible.builtin.lineinfile:
+    path: "{{ path_to_postgresql_conf }}"
+    line: "password_encryption = 'scram-sha-256'"
+    regexp: "password_encryption"
+    insertbefore: '^#db_user_namespace'
+  notify:
+    - 'Restart the postgreSQL service'
+
 - name: 'Modify postgresql.conf to listen on all IP addresses'
   ansible.builtin.lineinfile:
     path: "{{ path_to_postgresql_conf }}"
