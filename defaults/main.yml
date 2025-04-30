@@ -5,6 +5,7 @@ postgresql_package_name: 'postgresql16-server'
 postgresql_service_name: 'postgresql.service'
 
 path_to_postgresql_conf: '/var/lib/pgsql/data/postgresql.conf'
+path_to_ansible_tmp: '/var/lib/pgsql/.ansible/tmp/'
 
 postgresql_system_user: 'postgres'
 
