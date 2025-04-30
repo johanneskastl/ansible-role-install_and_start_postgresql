@@ -57,6 +57,14 @@
   when:
     - 'postgresql_superuser_password is defined'
 
+- name: 'Create temporary directory for postgres user'
+  ansible.builtin.file:
+    path: "{{ path_to_ansible_tmp }}"
+    state: 'directory'
+    owner: "{{ postgresql_system_user }}"
+    group: "{{ postgresql_system_group }}"
+    mode: '0700'
+
 - name: 'Set the password for the postgres user'
   community.postgresql.postgresql_user:
     name: "{{ postgresql_system_user }}"
